@@ -2,7 +2,14 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import JSONResponse
 import random
 
-ORDER_STATUSES = ["pending", "processing", "shipped", "delivered", "cancelled"]
+ORDER_STATUS_REF_MAPPING = {
+    "690003171": "shipped",
+    "1234567": "pending",
+    "000000": "processing",
+    "11111111":  "cancelled",
+    "666666": "delivered",
+}
+
 
 
 app = FastAPI()
@@ -20,5 +27,12 @@ def get_status(ref: str = Query(...)):
             detail={"error": "invalid ref format"}
         )
     
-    status = random.choice(ORDER_STATUSES)
-    return {"ref": ref, "status": status}
+    if ref not in ORDER_STATUS_REF_MAPPING:
+        raise HTTPException(
+            status_code=400,
+            detail={"error": "unkwown ref"}
+        )
+
+    status = ORDER_STATUS_REF_MAPPING[ref]
+    
+    return {"status": status}
