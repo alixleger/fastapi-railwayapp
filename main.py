@@ -1,45 +1,19 @@
-from fastapi import FastAPI, Query, HTTPException
-from fastapi.responses import JSONResponse
-import random
+from fastapi import FastAPI, Query
 
-ORDER_STATUS_REF_MAPPING = {
-    "690003171": "delivered",
-    "1234567": "pending",
-    "000001": "processing",
-    "11111111":  "cancelled",
-    "666666": "shipped",
+shipments = {
+    "690003171": {
+    "has_error": False,
+    "error_detail": None,		
+    "status": "completed_delivered",			
+    "latest_shipping_date": "17/07/2025",
+    "earliest_shipping_date": "25/07/2025",
+    "created_at": "05/07/2025",			
+    "shipments": [{
+        "carrier_code": "colissimo",		
+        "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
+        "created_at": "14/07/2025"		
+    }],
 }
-
-TRACKING_LINK_REF_MAPPING = {
-    "690003171": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",
-    "1234567": None,
-    "000001": None,
-    "11111111": None,
-    "666666": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",
-}
-
-REFUND_DATE_REF_MAPPING = {
-    "690003171": None,
-    "1234567": None,
-    "000001": None,
-    "11111111": "17/07/2025",
-    "666666": None,
-}
-
-PAYMENT_METHOD_REF_MAPPING = {
-    "690003171": "bank card",
-    "1234567": "bank card",
-    "000001": "bank card",
-    "11111111": "bank card",
-    "666666": "bank card",
-}
-
-SHIPPING_DATE_REF_MAPPING = {
-    "690003171": "03/10/2025",
-    "1234567": "08/10/2025",
-    "000001": "08/10/2025",
-    "11111111": None,
-    "666666": "03/10/2025",
 }
 
 
@@ -64,16 +38,10 @@ def get_status(ref: str = Query(...)):
     if not ref.isdigit():
         response["error"] = "invalid ref format"
 
-    if ref not in ORDER_STATUS_REF_MAPPING:
+    if ref not in shipments:
         response["error"] = "unknown ref"
 
     if response["error"] is not None:
         return response
 
-    response["status"] = ORDER_STATUS_REF_MAPPING[ref]
-    response["tracking_link"] = TRACKING_LINK_REF_MAPPING[ref]
-    response["refund_date"] = REFUND_DATE_REF_MAPPING[ref]
-    response["payment_method"] = PAYMENT_METHOD_REF_MAPPING[ref]
-    response["shipping_date"] = SHIPPING_DATE_REF_MAPPING[ref]
-
-    return response
+    return shipments[ref]
