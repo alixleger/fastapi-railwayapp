@@ -27,21 +27,19 @@ async def root():
 @app.get("/status")
 def get_status(ref: str = Query(...)):
     response = {
+        "has_error": False,
         "error": None,
-        "status": None,
-        "tracking_link": None,
-        "refund_date": None,
-        "payment_method": None,
-        "shipping_date": None,
     }
 
     if not ref.isdigit():
         response["error"] = "invalid ref format"
+        response["has_error"] = True
 
     if ref not in shipments:
         response["error"] = "unknown ref"
+        response["has_error"] = True
 
-    if response["error"] is not None:
+    if response["has_error"] is True:
         return response
 
     return shipments[ref]
