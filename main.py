@@ -22,6 +22,16 @@ shipments = {
         "earliest_shipping_date": "25/08/2025",
         "created_at": "05/07/2025",			
         "shipments": [],
+    },
+    "100000001": {
+        "has_error": False,
+        "error_detail": None,		
+        "status": "closed",			
+        "latest_shipping_date": "12/07/2025",
+        "earliest_shipping_date": "17/07/2025",
+        "created_at": "05/07/2025",			
+        "shipments": [],
+        "shipped_at": "15/07/2025"
     }
 }
 
