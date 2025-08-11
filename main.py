@@ -11,7 +11,8 @@ shipments = {
         "shipments": [{
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
-            "created_at": "14/07/2025"		
+            "created_at": "14/07/2025",
+            "items": []
         }],
     },
     "100000000": {
@@ -31,7 +32,37 @@ shipments = {
         "earliest_shipping_date": "17/07/2025",
         "created_at": "05/07/2025",			
         "shipments": [],
-        "shipped_at": "15/07/2025"
+        "shipped_at": "15/07/2025",
+    },
+    "100000002": {
+        "has_error": False,
+        "error_detail": None,		
+        "status": "processing_partial_delivery",			
+        "latest_shipping_date": "01/08/2025",
+        "earliest_shipping_date": "30/09/2025",
+        "created_at": "05/07/2025",	
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
+            "created_at": "14/07/2025",
+            "items": [
+                {
+                    "name": "Chaussures Nike AirMax - rouge - 32",
+                    "qty":1
+                }
+            ]
+        }],
+        "shipped_at": None,
+        "items": [
+            {
+                "name": "Chaussures Nike AirMax - rouge - 32",
+                "qty":1
+            },
+            {
+                "name": "Chaussures Adidas - Noir - 32",
+                "qty":1
+            }
+        ]
     }
 }
 
