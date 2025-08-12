@@ -152,7 +152,7 @@ shipments = {
             {
                 "ref": "7",
                 "name": "Chaussures Nike AirMax - bleue - 32",
-                "qty":1,
+                "qty":2,
                 "qty_shipped": 1
             }
         ]
