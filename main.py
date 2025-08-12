@@ -81,7 +81,6 @@ shipments = {
                 "name": "Chaussures Adidas - Vertes - 32",
                 "qty":1
             },
-            ,
             {
                 "name": "Chaussures Adidas - Bleues - 32",
                 "qty":1
