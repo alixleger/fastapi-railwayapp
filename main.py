@@ -47,10 +47,12 @@ shipments = {
             "created_at": "14/07/2025",
             "items": [
                 {
+                    "ref": "1",
                     "name": "Chaussures Nike AirMax - rouge - 32",
                     "qty":1
                 },
                 {
+                    "ref": "2",
                     "name": "Chaussures Adidas - Noir - 32",
                     "qty":1
                 }
@@ -62,6 +64,7 @@ shipments = {
             "created_at": "16/07/2025",
             "items": [
                 {
+                    "ref": "3",
                     "name": "Chaussures Adidas - Vertes - 32",
                     "qty":1
                 }
@@ -70,18 +73,22 @@ shipments = {
         "shipped_at": None,
         "items": [
             {
+                "ref": "1",
                 "name": "Chaussures Nike AirMax - rouge - 32",
                 "qty":1
             },
             {
+                "ref": "2",
                 "name": "Chaussures Adidas - Noir - 32",
                 "qty":1
             },
             {
+                "ref": "3",
                 "name": "Chaussures Adidas - Vertes - 32",
                 "qty":1
             },
             {
+                "ref": "4",
                 "name": "Chaussures Adidas - Bleues - 32",
                 "qty":1
             }
