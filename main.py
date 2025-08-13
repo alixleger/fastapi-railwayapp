@@ -1,5 +1,50 @@
 from fastapi import FastAPI, Query
 
+products = [
+    {
+        "ref": "1",
+        "name": "Chaussures Nike AirMax - rouge - 32",
+        "qty":1,
+        "qty_shipped": 1
+    },
+    {
+        "ref": "2",
+        "name": "Chaussures Adidas - Noir - 32",
+        "qty":1,
+        "qty_shipped": 1
+    },
+    {
+        "ref": "3",
+        "name": "Chaussures Adidas - Vertes - 32",
+        "qty":1,
+        "qty_shipped": 1
+    },
+    {
+        "ref": "4",
+        "name": "Chaussures Adidas - Bleues - 32",
+        "qty":1,
+        "qty_shipped": 1
+    },
+    {
+        "ref": "5",
+        "name": "Chaussures Nike AirMax - noire - 32",
+        "qty":1,
+        "qty_shipped": 1
+    },
+    {
+        "ref": "6",
+        "name": "Chaussures Nike AirMax - verte - 32",
+        "qty":1,
+        "qty_shipped": 0
+    },
+    {
+        "ref": "7",
+        "name": "Chaussures Nike AirMax - bleue - 32",
+        "qty": 2,
+        "qty_shipped": 1
+    }
+]
+
 shipments = {
     "690003171": {
         "has_error": False,
@@ -7,13 +52,14 @@ shipments = {
         "status": "completed_delivered",			
         "latest_shipping_date": "17/07/2025",
         "earliest_shipping_date": "25/07/2025",
-        "created_at": "05/07/2025",			
+        "created_at": "05/07/2025",
+        "shipped_at": "15/07/2025",
         "shipments": [{
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
             "created_at": "14/07/2025",
-            "items": []
         }],
+        "items": [products[0]]
     },
     "100000000": {
         "has_error": False,
@@ -21,8 +67,10 @@ shipments = {
         "status": "complete_late",			
         "latest_shipping_date": "17/08/2025",
         "earliest_shipping_date": "25/08/2025",
-        "created_at": "05/07/2025",			
+        "created_at": "05/07/2025",
+        "shipped_at": None,
         "shipments": [],
+        "items": [products[2]]
     },
     "100000001": {
         "has_error": False,
@@ -31,8 +79,9 @@ shipments = {
         "latest_shipping_date": "12/07/2025",
         "earliest_shipping_date": "17/07/2025",
         "created_at": "05/07/2025",			
-        "shipments": [],
         "shipped_at": "15/07/2025",
+        "shipments": [],
+        "items": [products[3]]
     },
     "100000002": {
         "has_error": False,
@@ -41,58 +90,18 @@ shipments = {
         "earliest_shipping_date": "01/08/2025",
         "latest_shipping_date": "30/09/2025",
         "created_at": "05/07/2025",	
+        "shipped_at": None,
         "shipments": [{
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
-            "created_at": "14/07/2025",
-            "items": [
-                {
-                    "ref": "1",
-                    "name": "Chaussures Nike AirMax - rouge - 32",
-                    "qty":1
-                },
-                {
-                    "ref": "2",
-                    "name": "Chaussures Adidas - Noir - 32",
-                    "qty":1
-                }
-            ]
+            "created_at": "14/07/2025"
         },
         {
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
-            "created_at": "16/07/2025",
-            "items": [
-                {
-                    "ref": "3",
-                    "name": "Chaussures Adidas - Vertes - 32",
-                    "qty":1
-                }
-            ]
+            "created_at": "16/07/2025"
         }],
-        "shipped_at": None,
-        "items": [
-            {
-                "ref": "1",
-                "name": "Chaussures Nike AirMax - rouge - 32",
-                "qty":1
-            },
-            {
-                "ref": "2",
-                "name": "Chaussures Adidas - Noir - 32",
-                "qty":1
-            },
-            {
-                "ref": "3",
-                "name": "Chaussures Adidas - Vertes - 32",
-                "qty":1
-            },
-            {
-                "ref": "4",
-                "name": "Chaussures Adidas - Bleues - 32",
-                "qty":1
-            }
-        ]
+        "items": [products[0], products[4], products[3], products[2]]
     },
     "100000003": {
         "has_error": False,
@@ -100,7 +109,8 @@ shipments = {
         "status": "processing_partial_delivery",			
         "earliest_shipping_date": "01/08/2025",
         "latest_shipping_date": "30/09/2025",
-        "created_at": "05/07/2025",	
+        "created_at": "05/07/2025",
+        "shipped_at": None,
         "shipments": [{
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
@@ -111,51 +121,7 @@ shipments = {
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
             "created_at": "16/07/2025",
         }],
-        "shipped_at": None,
-        "items": [
-            {
-                "ref": "1",
-                "name": "Chaussures Nike AirMax - rouge - 32",
-                "qty":1,
-                "qty_shipped": 1
-            },
-            {
-                "ref": "2",
-                "name": "Chaussures Adidas - Noir - 32",
-                "qty":1,
-                "qty_shipped": 1
-            },
-            {
-                "ref": "3",
-                "name": "Chaussures Adidas - Vertes - 32",
-                "qty":1,
-                "qty_shipped": 1
-            },
-            {
-                "ref": "4",
-                "name": "Chaussures Adidas - Bleues - 32",
-                "qty":1,
-                "qty_shipped": 1
-            },
-            {
-                "ref": "5",
-                "name": "Chaussures Nike AirMax - noire - 32",
-                "qty":1,
-                "qty_shipped": 1
-            },
-            {
-                "ref": "6",
-                "name": "Chaussures Nike AirMax - verte - 32",
-                "qty":1,
-                "qty_shipped": 0
-            },
-            {
-                "ref": "7",
-                "name": "Chaussures Nike AirMax - bleue - 32",
-                "qty":2,
-                "qty_shipped": 1
-            }
-        ]
+        "items": [*products]
     }
 }
 
