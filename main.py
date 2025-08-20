@@ -45,83 +45,121 @@ products = [
     }
 ]
 
-shipments = {
-    "690003171": {
-        "has_error": False,
-        "error_detail": None,		
-        "status": "completed_delivered",			
-        "latest_shipping_date": "17/07/2025",
-        "earliest_shipping_date": "25/07/2025",
-        "created_at": "05/07/2025",
-        "shipped_at": "15/07/2025",
-        "shipments": [{
-            "carrier_code": "colissimo",		
-            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
-            "created_at": "14/07/2025",
-        }],
-        "items": [products[0]]
-    },
+order = {
     "100000000": {
-        "has_error": False,
-        "error_detail": None,		
-        "status": "complete_late",			
-        "latest_shipping_date": "17/08/2025",
-        "earliest_shipping_date": "25/08/2025",
+        "status": "processing",			
         "created_at": "05/07/2025",
-        "shipped_at": None,
-        "shipments": [],
-        "items": [products[2]]
+        "earliest_shipping_date": "01/10/2025",
+        "latest_shipping_date": "30/11/2025"
     },
     "100000001": {
-        "has_error": False,
-        "error_detail": None,		
-        "status": "closed",			
-        "latest_shipping_date": "12/07/2025",
-        "earliest_shipping_date": "17/07/2025",
-        "created_at": "05/07/2025",			
-        "shipped_at": "15/07/2025",
-        "shipments": [],
-        "items": [products[3]]
+        "status": "cancelled",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/10/2025",
+        "latest_shipping_date": "30/11/2025"
     },
     "100000002": {
-        "has_error": False,
-        "error_detail": None,		
-        "status": "processing_partial_delivery",			
-        "earliest_shipping_date": "01/08/2025",
-        "latest_shipping_date": "30/09/2025",
-        "created_at": "05/07/2025",	
-        "shipped_at": None,
-        "shipments": [{
-            "carrier_code": "colissimo",		
-            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
-            "created_at": "14/07/2025"
-        },
-        {
-            "carrier_code": "colissimo",		
-            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
-            "created_at": "16/07/2025"
-        }],
-        "items": [products[0], products[4], products[3], products[2]]
+        "status": "holded",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/10/2025",
+        "latest_shipping_date": "30/11/2025"
     },
     "100000003": {
-        "has_error": False,
-        "error_detail": None,		
-        "status": "processing_partial_delivery",			
-        "earliest_shipping_date": "01/08/2025",
-        "latest_shipping_date": "30/09/2025",
+        "status": "fraud",			
         "created_at": "05/07/2025",
-        "shipped_at": None,
+        "earliest_shipping_date": "01/10/2025",
+        "latest_shipping_date": "30/11/2025"
+    },
+    "100000004": {
+        "status": "pending_payment",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/10/2025",
+        "latest_shipping_date": "30/11/2025"
+    },
+    "100000005": {
+        "status": "complete_late",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/08/2025",
+        "latest_shipping_date": "10/08/2025"
+    },
+    "100000006": {
+        "status": "processing_shipment",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/08/2025",
+        "latest_shipping_date": "30/08/2025"
+    },
+    "100000007": {
+        "status": "complete",			
+        "created_at": "05/07/2025",
+        "shipped_at": "25/07/2025",
         "shipments": [{
-            "carrier_code": "colissimo",		
-            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M00832571464",		
-            "created_at": "14/07/2025",
-        },
-        {
             "carrier_code": "colissimo",		
             "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
             "created_at": "16/07/2025",
         }],
-        "items": [*products]
+        "items": [products[0]] 
+    },
+    "100000008": {
+        "status": "complete_delivery_in_progress",			
+        "created_at": "05/07/2025",
+        "shipped_at": "19/08/2025",
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
+            "created_at": "19/08/2025",
+        }],
+        "items": [products[0]] 
+    },
+    "100000009": {
+        "status": "complete_delivered",			
+        "created_at": "05/07/2025",
+        "shipped_at": "17/08/2025",
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
+            "created_at": "17/08/2025",
+        }],
+        "items": [products[0]] 
+    },
+    "100000010": {
+        "status": "complete_delivered_removal_point",			
+        "created_at": "05/07/2025",
+        "shipped_at": "17/08/2025",
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
+            "created_at": "17/08/2025",
+        }],
+        "items": [products[0]] 
+    },
+    "100000011": {
+        "status": "complete",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/08/2025",
+        "latest_shipping_date": "30/08/2025",
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
+            "created_at": "16/07/2025",
+        }],
+        "items": [products[0], products[1]] 
+    },
+    "100000012": {
+        "status": "processing_partial",			
+        "created_at": "05/07/2025",
+        "earliest_shipping_date": "01/08/2025",
+        "latest_shipping_date": "30/08/2025",
+        "shipments": [{
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=9M0083271464",		
+            "created_at": "16/07/2025",
+        },
+        {
+            "carrier_code": "colissimo",		
+            "tracking_link": "https://www.laposte.fr/outils/suivre-vos-envois?code=3149389348",		
+            "created_at": "17/07/2025",
+        }],
+        "items": [*products] 
     }
 }
 
@@ -144,11 +182,11 @@ def get_status(ref: str = Query(...)):
         response["error"] = "invalid ref format"
         response["has_error"] = True
 
-    if ref not in shipments:
+    if ref not in order:
         response["error"] = "unknown ref"
         response["has_error"] = True
 
     if response["has_error"] is True:
         return response
 
-    return shipments[ref]
+    return order[ref]
